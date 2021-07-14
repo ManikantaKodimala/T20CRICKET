@@ -19,6 +19,7 @@ namespace T20Cricket
             Console.WriteLine("START THE MATCH !");
             string[] input;
             int res = 0;
+            Commentary commentary = new Commentary();
             while (totalBalls > 0 && totalWicketsOfInnings < totalWickets)
             {
                 input = Console.ReadLine().Split();
@@ -60,13 +61,16 @@ namespace T20Cricket
                     totalWickets += 1;
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("1 Wicket");
+                    commentary.CommentaryForShot(input[0], res);
+                    Console.ForegroundColor = ConsoleColor.Green;
+
                 }
                 else
                 {
-                    Console.WriteLine(res + " Runs");
+                    commentary.CommentaryForShot(input[0], res);
                     score += res;
                 }
-                Console.ForegroundColor = ConsoleColor.Green;
+
                 totalBalls -= 1;
             }
 
