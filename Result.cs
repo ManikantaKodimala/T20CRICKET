@@ -70,7 +70,6 @@ namespace T20Cricket
             }
             return 0;
         }
-
         public int ResultOfShotForPace(string shotSelected, string shortTiming)
         {
             string[] bestShots = { "CoverDrive" };

@@ -7,7 +7,7 @@ namespace T20Cricket
         public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            int totalBalls = 120, totalWickets = 10;
+            int totalBalls = 10, totalWickets = 10;
             StartGame team1 = new StartGame("India");
             StartGame team2 = new StartGame("Australia");
             team1.StartInnings(totalBalls, totalWickets);
@@ -16,7 +16,10 @@ namespace T20Cricket
             team2.ScoreCard();
             if (team1.score == team2.score)
             {
-                Console.WriteLine("Score has tied, we are going for super over");
+                team1.StartSuperOver(6, 2);
+                team1.ScoreCard();
+                team2.StartSuperOver(6, 2);
+                team2.ScoreCard();
             }
             else if (team1.score > team2.score)
             {
