@@ -1,0 +1,12 @@
+/Users/kodimalamanikanta/Manikanta/Traning/C#/T20Cricket/bin/Debug/netcoreapp3.1/T20Cricket.deps.json
+/Users/kodimalamanikanta/Manikanta/Traning/C#/T20Cricket/bin/Debug/netcoreapp3.1/T20Cricket.runtimeconfig.json
+/Users/kodimalamanikanta/Manikanta/Traning/C#/T20Cricket/bin/Debug/netcoreapp3.1/T20Cricket.runtimeconfig.dev.json
+/Users/kodimalamanikanta/Manikanta/Traning/C#/T20Cricket/bin/Debug/netcoreapp3.1/T20Cricket.dll
+/Users/kodimalamanikanta/Manikanta/Traning/C#/T20Cricket/bin/Debug/netcoreapp3.1/T20Cricket.pdb
+/Users/kodimalamanikanta/Manikanta/Traning/C#/T20Cricket/obj/Debug/netcoreapp3.1/T20Cricket.csprojAssemblyReference.cache
+/Users/kodimalamanikanta/Manikanta/Traning/C#/T20Cricket/obj/Debug/netcoreapp3.1/T20Cricket.AssemblyInfoInputs.cache
+/Users/kodimalamanikanta/Manikanta/Traning/C#/T20Cricket/obj/Debug/netcoreapp3.1/T20Cricket.AssemblyInfo.cs
+/Users/kodimalamanikanta/Manikanta/Traning/C#/T20Cricket/obj/Debug/netcoreapp3.1/T20Cricket.csproj.CoreCompileInputs.cache
+/Users/kodimalamanikanta/Manikanta/Traning/C#/T20Cricket/obj/Debug/netcoreapp3.1/T20Cricket.dll
+/Users/kodimalamanikanta/Manikanta/Traning/C#/T20Cricket/obj/Debug/netcoreapp3.1/T20Cricket.pdb
+/Users/kodimalamanikanta/Manikanta/Traning/C#/T20Cricket/obj/Debug/netcoreapp3.1/T20Cricket.genruntimeconfig.cache
