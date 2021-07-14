@@ -9,8 +9,8 @@ namespace T20Cricket
         {
             if (resultOfShot == 1)
             {
-                string[] commentary = { "Good running between the wickets", "It's a single" };
-                Console.WriteLine(commentary[random.Next(0, 2)] + " - " + resultOfShot + " Runs");
+                string[] commentary = { "Good running between the wickets", "It's a single", "Excellent line and length" };
+                Console.WriteLine(commentary[random.Next(0, 3)] + " - " + resultOfShot + " Runs");
             }
             else if (resultOfShot == 2)
             {
@@ -19,8 +19,8 @@ namespace T20Cricket
             }
             else if (resultOfShot == 3)
             {
-                string[] commentary = { "Good running between the wickets", "Excellent stop at the boundary" };
-                Console.WriteLine(commentary[random.Next(0, 2)] + " - " + resultOfShot + " Runs");
+                string[] commentary = { "Good running between the wickets", "Excellent stop at the boundary", "Excellent line and length" };
+                Console.WriteLine(commentary[random.Next(0, 3)] + " - " + resultOfShot + " Runs");
             }
             else if (resultOfShot == 4)
             {
