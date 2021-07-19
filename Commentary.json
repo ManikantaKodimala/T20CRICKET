@@ -7,19 +7,27 @@
         "Timing": [
           {
             "timeType": "Early",
-            "outcome": [-1, 0]
+            "outcome": ["It's a wicket", "edge and taken"]
           },
           {
             "timeType": "Good",
-            "outcome": [1, 2]
+            "outcome": [
+              "Good running between the wickets",
+              "It's a single",
+              "Excellent line and length"
+            ]
           },
           {
             "timeType": "Perfect",
-            "outcome": [1, 2]
+            "outcome": [
+              "Good running between the wickets",
+              "It's a single",
+              "Excellent line and length"
+            ]
           },
           {
             "timeType": "Late",
-            "outcome": [-1]
+            "outcome": ["It's a wicket", "edge and taken"]
           }
         ]
       },
@@ -248,7 +256,7 @@
     "ballType": "Doosra",
     "bestShots": [
       {
-        "shotName": "Sweep",
+        "shotName": "Pull",
         "Timing": [
           {
             "timeType": "Early",

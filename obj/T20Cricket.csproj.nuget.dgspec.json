@@ -36,6 +36,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "JsonNet.ContractResolvers": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "MSTest.TestAdapter": {
               "target": "Package",
               "version": "[2.2.5, )"
@@ -47,6 +51,10 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.10.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             }
           },
           "imports": [

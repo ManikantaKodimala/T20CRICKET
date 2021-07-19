@@ -1,20 +1,49 @@
 using System;
 namespace T20Cricket
 {
-    class Team
+    public class Team
     {
         private string teamName;
-        public int wicketsLost { get; set; }
-        public int score { get; set; }
+        private int score = 0;
+        private int wicketslost = 0;
+        private string[] teamMembers;
+
         public Team(string name)
         {
             teamName = name;
         }
+
+        public void setScore(int score)
+        {
+            this.score += score;
+        }
+        public int getScore()
+        {
+            return score;
+        }
+        public void setWicket(int wicket = 1)
+        {
+            if (wicket == 0)
+                wicketslost = 0;
+            wicketslost += wicket;
+        }
+        public int getWickets()
+        {
+            return wicketslost;
+        }
+
         public string getTeamName()
         {
             return this.teamName;
         }
-        public string[] teamMembers { get; set; }
+        public void setTeamMembers(string[] teamMembers)
+        {
+            this.teamMembers = teamMembers;
+        }
+        public string[] getTeamMembers()
+        {
+            return teamMembers;
+        }
 
     }
 }

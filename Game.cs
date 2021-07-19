@@ -4,26 +4,30 @@ using Newtonsoft.Json;
 using System.IO;
 namespace T20Cricket
 {
-    class Game
+    public class Game
     {
-        static string outComesFileName = "Outcomes.json";
-        static string jsonString = File.ReadAllText(outComesFileName);
-        static List<ResultOfShot> dict = JsonConvert.DeserializeObject<List<ResultOfShot>>(jsonString);
-        private string[] typesOfBolwing = { "Bouncer", "Inswinger", "Outswinger", "OffCutter", "Yorker", "OffBreak", "LegCutter", "SlowerBall", "Pace", "Doosra" };
-        public void ScoreCard(Team team)
+        string jsonString;
+        List<ResultOfShot> outcomes;
+        public Game(string filePath)
         {
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine(team.getTeamName().ToUpper() + " scored : " + team.score);
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            jsonString = File.ReadAllText(filePath);
+            outcomes = JsonConvert.DeserializeObject<List<ResultOfShot>>(jsonString);
         }
-        public int PredictOutcome(string bowlType, string shotSelected, string shortTiming)
+        private string[] typesOfBolwing = { "Bouncer", "Inswinger", "Outswinger", "OffCutter", "Yorker", "OffBreak", "LegCutter", "SlowerBall", "Pace", "Doosra" };
+        private void ScoreCard(Team team)
         {
-            Random random = new Random(5);
-            foreach (ResultOfShot item in dict)
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine(team.getTeamName().ToUpper() + " scored : " + team.getScore());
+            Console.ForegroundColor = ConsoleColor.Green;
+        }
+        public int PredictOutcome(string bowledType, string shotSelected, string shortTiming)
+        {
+            var random = new Random(5);
+            foreach (ResultOfShot ball in outcomes)
             {
-                if (item.ballType == bowlType)
+                if (ball.ballType == bowledType)
                 {
-                    foreach (ShotType shot in item.bestshots)
+                    foreach (ShotType shot in ball.bestShots)
                     {
                         if (shot.shotName == shotSelected)
                         {
@@ -48,7 +52,7 @@ namespace T20Cricket
         {
             if (resultOfShot == -1)
             {
-                team.wicketsLost += 1;
+                team.setWicket();
                 Console.ForegroundColor = ConsoleColor.Red;
                 commentary.CommentaryForShot(resultOfShot);
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -56,7 +60,7 @@ namespace T20Cricket
             else
             {
                 commentary.CommentaryForShot(resultOfShot);
-                team.score += resultOfShot;
+                team.setScore(resultOfShot);
             }
         }
         public void StartInnings(Team team, int totalBalls, int totalWickets)
@@ -66,7 +70,7 @@ namespace T20Cricket
             string[] input;
             int resultOfShot = 0;
             Commentary commentary = new Commentary();
-            while (totalBalls > 0 && team.wicketsLost < totalWickets)
+            while (totalBalls > 0 && team.getWickets() < totalWickets)
             {
                 input = Console.ReadLine().Trim().Split();
                 resultOfShot = PredictOutcome(input[0], input[1], input[2]);
@@ -75,7 +79,7 @@ namespace T20Cricket
             }
             ScoreCard(team);
         }
-        public List<string> GetBowlingCards(string[] bowlingTypes)
+        private List<string> GetBowlingCards(string[] bowlingTypes)
         {
             Random random = new Random();
             List<string> ballTypes = new List<string>();
@@ -85,16 +89,8 @@ namespace T20Cricket
             }
             return ballTypes;
         }
-        public void StartSuperOver(Team battingTeam, Team bowlingTeam, int totalBalls, int totalWickets)
+        private void LogBowlingCards(List<string> bolwingCards)
         {
-            string[] input;
-            int resultOfShot = 0;
-            Commentary commentary = new Commentary();
-            Random random = new Random(5);
-            string bowlType, bowlerName = bowlingTeam.teamMembers[random.Next(0, 11)];
-            string batsMan = battingTeam.teamMembers[random.Next(0, 11)];
-            List<string> bolwingCards = GetBowlingCards(typesOfBolwing);
-
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Bowling Cards:");
             Console.ForegroundColor = ConsoleColor.Red;
@@ -104,18 +100,34 @@ namespace T20Cricket
             }
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine(" ");
+        }
+        private void LogSuperOverCommentary(string bowlerName, string ballType, string shotName, string shotTime, string batsMan)
+        {
+            Console.WriteLine(bowlerName + " bowled " + ballType + " ball");
+            Console.WriteLine(batsMan + " played " + shotTime + " " + shotName + " shot");
+        }
+        public void StartSuperOver(Team battingTeam, Team bowlingTeam, int totalBalls, int totalWickets)
+        {
+            string[] input;
+            int resultOfShot = 0;
+            Commentary commentary = new Commentary();
+            Random random = new Random(5);
+            string bowlType, bowlerName = bowlingTeam.getTeamMembers()[random.Next(0, 11)];
+            string batsMan = battingTeam.getTeamMembers()[random.Next(0, 11)];
+            List<string> bolwingCards = GetBowlingCards(typesOfBolwing);
+
+            LogBowlingCards(bolwingCards);
             Console.WriteLine("START SUPER OVER !");
-            while (totalBalls > 0 && battingTeam.wicketsLost < totalWickets)
+            while (totalBalls > 0 && battingTeam.getWickets() < totalWickets)
             {
                 input = Console.ReadLine().Trim().Split();
                 bowlType = bolwingCards[6 - totalBalls];
                 resultOfShot = PredictOutcome(bowlType, input[0], input[1]);
-                Console.WriteLine(bowlerName + " bowled " + bowlType + " ball");
-                Console.WriteLine(batsMan + " played " + input[1] + " " + input[0] + " shot");
+                LogSuperOverCommentary(bowlerName, bowlType, input[0], input[1], batsMan);
                 DisplayBoard(battingTeam, resultOfShot, commentary);
                 if (resultOfShot < 0)
                 {
-                    batsMan = battingTeam.teamMembers[random.Next(0, 11)];
+                    batsMan = battingTeam.getTeamMembers()[random.Next(0, 11)];
                 }
                 totalBalls -= 1;
             }
@@ -124,18 +136,27 @@ namespace T20Cricket
     }
     class ResultOfShot
     {
-        public string ballType;
-        public List<ShotType> bestshots;
+        [JsonProperty]
+        public string ballType { get; private set; }
+        [JsonProperty]
+        public List<ShotType> bestShots { get; private set; }
     }
     class ShotType
     {
-        public string shotName;
-        public List<Time> timing;
+        [JsonProperty]
+        public string shotName { get; private set; }
+
+        [JsonProperty]
+        public List<Time> timing { get; private set; }
+
     }
     class Time
     {
         [JsonProperty]
-        public string timeType;
-        public List<int> outcome;
+        public string timeType { get; private set; }
+
+        [JsonProperty]
+        public List<int> outcome { get; private set; }
+
     }
 }
