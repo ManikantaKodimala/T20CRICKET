@@ -11,7 +11,6 @@ namespace T20CricketTest
         [TestMethod]
         public void TestResultOfShotForBouncerGood()
         {
-
             int[] runs = { 4, 6 };
             string shotType = "Pull", shortTiming = "Good";
             int expected = runs[random.Next(0, 2)];

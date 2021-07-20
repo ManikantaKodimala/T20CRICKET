@@ -5,7 +5,7 @@ namespace T20Cricket
     public class Commentary
     {
         Random random = new Random(5);
-        public void CommentaryForShot(string shotSelected, int resultOfShot)
+        public void CommentaryForShot(int resultOfShot)
         {
             if (resultOfShot == 1)
             {
@@ -39,10 +39,8 @@ namespace T20Cricket
             }
             else
             {
-                //Console.ForegroundColor = ConsoleColor.Red;
                 string[] commentary = { "Excellent bowling", "Good Length", "Excellent line and length" };
                 Console.WriteLine(commentary[random.Next(0, 3)] + " - 0 Runs");
-                //Console.ForegroundColor = ConsoleColor.Green;
             }
         }
     }

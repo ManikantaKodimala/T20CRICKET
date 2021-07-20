@@ -1,9 +1,10 @@
 using System;
-
+using System.Collections.Generic;
 namespace T20Cricket
 {
     public class Result
     {
+
         public int ResultOfShotForDoosra(string shotSelected, string shortTiming)
         {
             string[] bestShots = { "CoverDrive" };

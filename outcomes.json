@@ -1,0 +1,520 @@
+[
+  {
+    "ballType": "InSwinger",
+    "bestShots": [
+      {
+        "shotName": "Straight",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outcome": [-1, 0]
+          },
+          {
+            "timeType": "Good",
+            "outcome": [1, 2]
+          },
+          {
+            "timeType": "Perfect",
+            "outcome": [1, 2]
+          },
+          {
+            "timeType": "Late",
+            "outcome": [-1]
+          }
+        ]
+      },
+      {
+        "shotName": "CoverDrive",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outcome": [-1, 0]
+          },
+          {
+            "timeType": "Good",
+            "outcome": [1, 2]
+          },
+          {
+            "timeType": "Perfect",
+            "outcome": [4]
+          },
+          {
+            "timeType": "Late",
+            "outcome": [-1, 0]
+          }
+        ]
+      },
+      {
+        "shotName": "Default",
+        "Timing": [
+          {
+            "timeType": "Any",
+            "outcome": [-1, 0]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ballType": "OffBreak",
+    "bestShots": [
+      {
+        "shotName": "Sweep",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outCome": [-1, 0]
+          },
+          {
+            "timeType": "Good",
+            "outCome": [0, 1, 2]
+          },
+          {
+            "timeType": "Perfect",
+            "outCome": [4]
+          },
+          {
+            "timeType": "Late",
+            "outCome": [-1]
+          }
+        ]
+      },
+      {
+        "shotName": "LongON",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outCome": [-1, 0]
+          },
+          {
+            "timeType": "Good",
+            "outCome": [0, 1, 2]
+          },
+          {
+            "timeType": "Perfect",
+            "outCome": [6]
+          },
+          {
+            "timeType": "Late",
+            "outCome": [-1]
+          }
+        ]
+      },
+      {
+        "shotName": "CoverDrive",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outCome": [-1, 0]
+          },
+          {
+            "timeType": "Good",
+            "outCome": [1, 2, 4]
+          },
+          {
+            "timeType": "Perfect",
+            "outCome": [3]
+          },
+          {
+            "timeType": "Late",
+            "outCome": [-1]
+          }
+        ]
+      },
+      {
+        "shotName": "Default",
+        "Timing": [
+          {
+            "timeType": "Any",
+            "outCome": [0]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ballType": "Yorker",
+    "bestShots": [
+      {
+        "shotName": "Straight",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outCome": [-1]
+          },
+          {
+            "timeType": "Good",
+            "outCome": [0, 1, 2]
+          },
+          {
+            "timeType": "Perfect",
+            "outCome": [0, 1, 2, 4]
+          },
+          {
+            "timeType": "Late",
+            "outCome": [-1]
+          }
+        ]
+      },
+      {
+        "shotName": "LongOn",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outCome": [-1]
+          },
+          {
+            "timeType": "Good",
+            "outCome": [0, 1, 2]
+          },
+          {
+            "timeType": "Perfect",
+            "outCome": [6]
+          },
+          {
+            "timeType": "Late",
+            "outCome": [-1]
+          }
+        ]
+      },
+      {
+        "shotName": "Default",
+        "Timing": [
+          {
+            "timeType": "Any",
+            "outCome": [-1]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ballType": "OffCutter",
+    "bestShots": [
+      {
+        "shotName": "Straight",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outcome": [-1, 0]
+          },
+          {
+            "timeType": "Good",
+            "outcome": [1, 2, 4]
+          },
+          {
+            "timeType": "Perfect",
+            "outcome": [6]
+          },
+          {
+            "timeType": "Late",
+            "outcome": [-1]
+          }
+        ]
+      },
+      {
+        "shotName": "CoverDrive",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outcome": [-1, 0]
+          },
+          {
+            "timeType": "Good",
+            "outcome": [1, 2, 4]
+          },
+          {
+            "timeType": "Perfect",
+            "outcome": [6]
+          },
+          {
+            "timeType": "Late",
+            "outcome": [-1]
+          }
+        ]
+      },
+      {
+        "shotName": "Default",
+        "Timing": [
+          {
+            "timeType": "Any",
+            "outcome": [-1, 0]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ballType": "Doosra",
+    "bestShots": [
+      {
+        "shotName": "Sweep",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outcome": [-1, 0]
+          },
+          {
+            "timeType": "Good",
+            "outcome": [1, 2, 4]
+          },
+          {
+            "timeType": "Perfect",
+            "outcome": [6]
+          },
+          {
+            "timeType": "Late",
+            "outcome": [-1]
+          }
+        ]
+      },
+      {
+        "shotName": "Default",
+        "Timing": [
+          {
+            "timeType": "Any",
+            "outcome": [-1, 0]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ballType": "Slower",
+    "bestShots": [
+      {
+        "shotName": "Pull",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outcome": [-1, 0]
+          },
+          {
+            "timeType": "Good",
+            "outcome": [1, 2, 4]
+          },
+          {
+            "timeType": "Perfect",
+            "outcome": [6]
+          },
+          {
+            "timeType": "Late",
+            "outcome": [-1]
+          }
+        ]
+      },
+      {
+        "shotName": "Default",
+        "Timing": [
+          {
+            "timeType": "Any",
+            "outcome": [-1, 0]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ballType": "Pace",
+    "bestShots": [
+      {
+        "shotName": "Pull",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outcome": [-1, 0]
+          },
+          {
+            "timeType": "Good",
+            "outcome": [1, 2, 4]
+          },
+          {
+            "timeType": "Perfect",
+            "outcome": [6]
+          },
+          {
+            "timeType": "Late",
+            "outcome": [-1]
+          }
+        ]
+      },
+      {
+        "shotName": "UpperCut",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outcome": [-1, 0]
+          },
+          {
+            "timeType": "Good",
+            "outcome": [1, 2, 4]
+          },
+          {
+            "timeType": "Perfect",
+            "outcome": [6]
+          },
+          {
+            "timeType": "Late",
+            "outcome": [-1]
+          }
+        ]
+      },
+      {
+        "shotName": "Default",
+        "Timing": [
+          {
+            "timeType": "Any",
+            "outcome": [-1, 0]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ballType": "Bouncer",
+    "bestShots": [
+      {
+        "shotName": "Pull",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outcome": [-1, 0]
+          },
+          {
+            "timeType": "Good",
+            "outcome": [1, 2, 4]
+          },
+          {
+            "timeType": "Perfect",
+            "outcome": [6]
+          },
+          {
+            "timeType": "Late",
+            "outcome": [-1]
+          }
+        ]
+      },
+      {
+        "shotName": "UpperCut",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outcome": [-1, 0]
+          },
+          {
+            "timeType": "Good",
+            "outcome": [1, 2, 4]
+          },
+          {
+            "timeType": "Perfect",
+            "outcome": [6]
+          },
+          {
+            "timeType": "Late",
+            "outcome": [-1]
+          }
+        ]
+      },
+      {
+        "shotName": "Default",
+        "Timing": [
+          {
+            "timeType": "Any",
+            "outcome": [0]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ballType": "OutSwinger",
+    "bestShots": [
+      {
+        "shotName": "CoverDrive",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outcome": [-1, 0]
+          },
+          {
+            "timeType": "Good",
+            "outcome": [1, 2]
+          },
+          {
+            "timeType": "Perfect",
+            "outcome": [4]
+          },
+          {
+            "timeType": "Late",
+            "outcome": [0]
+          }
+        ]
+      },
+      {
+        "shotName": "Default",
+        "Timing": [
+          {
+            "timeType": "Any",
+            "outcome": [-1, 0]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ballType": "LegCutter",
+    "bestShots": [
+      {
+        "shotName": "Pull",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outcome": [-1, 0]
+          },
+          {
+            "timeType": "Good",
+            "outcome": [1, 2, 4]
+          },
+          {
+            "timeType": "Perfect",
+            "outcome": [6]
+          },
+          {
+            "timeType": "Late",
+            "outcome": [-1]
+          }
+        ]
+      },
+      {
+        "shotName": "UpperCut",
+        "Timing": [
+          {
+            "timeType": "Early",
+            "outcome": [-1, 0]
+          },
+          {
+            "timeType": "Good",
+            "outcome": [1, 2, 4]
+          },
+          {
+            "timeType": "Perfect",
+            "outcome": [6]
+          },
+          {
+            "timeType": "Late",
+            "outcome": [-1]
+          }
+        ]
+      },
+      {
+        "shotName": "Default",
+        "Timing": [
+          {
+            "timeType": "Any",
+            "outcome": [-1, 0]
+          }
+        ]
+      }
+    ]
+  }
+]
