@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 namespace T20Cricket
 {
-    class Game
+    public class Game
     {
         private Hashtable outComes = new Hashtable();
         private string[] typesOfBolwing = { "Bouncer", "Inswinger", "Outswinger", "OffCutter", "Yorker", "OffBreak", "LegCutter", "SlowerBall", "Pace", "Doosra" };
