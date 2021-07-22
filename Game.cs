@@ -8,14 +8,14 @@ namespace T20Cricket
     public class Game
     {
         private Hashtable outComes = new Hashtable();
-        private string[] typesOfBolwing = { "Bouncer", "Inswinger", "Outswinger", "OffCutter", "Yorker", "OffBreak", "LegCutter", "SlowerBall", "Pace", "Doosra" };
+        private string[] typesOfBolwing = { "Bouncer", "InSwinger", "OutSwinger", "OffCutter", "Yorker", "OffBreak", "LegCutter", "SlowerBall", "Pace", "Doosra" };
         public Game(string filePath = "outcomes.json")
         {
             string jsonString = File.ReadAllText(filePath);
             List<ResultOfShot> jsonValues = JsonConvert.DeserializeObject<List<ResultOfShot>>(jsonString);
-            getOutComes(jsonValues);
+            GetOutComes(jsonValues);
         }
-        private void getOutComes(List<ResultOfShot> jsonValues)
+        private void GetOutComes(List<ResultOfShot> jsonValues)
         {
             foreach (ResultOfShot ball in jsonValues)
             {
@@ -68,7 +68,7 @@ namespace T20Cricket
         private void ScoreCard(Team team)
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine(team.getTeamName().ToUpper() + " scored : " + team.getScore());
+            Console.WriteLine(team.GetTeamName().ToUpper() + " scored : " + team.GetScore());
             Console.ForegroundColor = ConsoleColor.Green;
         }
         public void DisplayBoard(Team team, int resultOfShot, Commentary commentary)
@@ -83,7 +83,7 @@ namespace T20Cricket
             }
             else if (resultOfShot == -1)
             {
-                team.setWicket();
+                team.SetWicket();
                 Console.ForegroundColor = ConsoleColor.Red;
                 commentary.CommentaryForShot(resultOfShot);
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -91,7 +91,7 @@ namespace T20Cricket
             else
             {
                 commentary.CommentaryForShot(resultOfShot);
-                team.setScore(resultOfShot);
+                team.SetScore(resultOfShot);
             }
         }
         public void StartInnings(Team team, int totalBalls, int totalWickets)
@@ -101,7 +101,7 @@ namespace T20Cricket
             string[] input;
             int resultOfShot = 0;
             Commentary commentary = new Commentary();
-            while (totalBalls > 0 && team.getWickets() < totalWickets)
+            while (totalBalls > 0 && team.GetWickets() < totalWickets)
             {
                 input = Console.ReadLine().Trim().Split();
                 resultOfShot = PredictOutcome(input[0], input[1], input[2]);
@@ -144,13 +144,20 @@ namespace T20Cricket
             int resultOfShot = 0;
             Commentary commentary = new Commentary();
             Random random = new Random(5);
-            string bowlType, bowlerName = bowlingTeam.getTeamMembers()[random.Next(0, 11)];
-            string batsMan = battingTeam.getTeamMembers()[random.Next(0, 11)];
+            Console.WriteLine("team name ={0} score={1}", bowlingTeam.GetTeamName(), bowlingTeam.GetScore());
+            List<string> totalTeamMembers = bowlingTeam.GetTeamMembers();
+            foreach (var item in totalTeamMembers)
+            {
+                Console.WriteLine(item);
+            }
+            string bowlType = "";
+            string bowlerName = totalTeamMembers[random.Next(0, 11)];
+            string batsMan = battingTeam.GetTeamMembers()[random.Next(0, 11)];
             List<string> bolwingCards = GetBowlingCards(typesOfBolwing);
 
             LogBowlingCards(bolwingCards);
             Console.WriteLine("START SUPER OVER !");
-            while (totalBalls > 0 && battingTeam.getWickets() < totalWickets)
+            while (totalBalls > 0 && battingTeam.GetWickets() < totalWickets)
             {
                 input = Console.ReadLine().Trim().Split();
                 bowlType = bolwingCards[6 - totalBalls];
@@ -159,7 +166,7 @@ namespace T20Cricket
                 DisplayBoard(battingTeam, resultOfShot, commentary);
                 if (resultOfShot < 0)
                 {
-                    batsMan = battingTeam.getTeamMembers()[random.Next(0, 11)];
+                    batsMan = battingTeam.GetTeamMembers()[random.Next(0, 11)];
                 }
                 totalBalls -= 1;
             }

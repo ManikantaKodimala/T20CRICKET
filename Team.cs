@@ -1,48 +1,45 @@
 using System;
+using System.Collections.Generic;
+
 namespace T20Cricket
 {
     public class Team
     {
         private string teamName;
-        private int score = 0;
-        private int wicketslost = 0;
-        private string[] teamMembers;
-
+        private int score;
+        private int wicketsLost;
+        private List<string> teamMembers;
         public Team(string name)
         {
             teamName = name;
         }
-
-        public void setScore(int score)
+        public void SetScore(int score)
         {
             this.score += score;
         }
-        public int getScore()
+        public int GetScore()
         {
-            return score;
+            return this.score;
         }
-        public void setWicket(int wicket = 1)
+        public void SetWicket(int wicket = 1)
         {
-            if (wicket == 0)
-                wicketslost = 0;
-            wicketslost += wicket;
+            wicketsLost += wicket == 1 ? 1 : -wicketsLost;
         }
-        public int getWickets()
+        public int GetWickets()
         {
-            return wicketslost;
+            return this.wicketsLost;
         }
-
-        public string getTeamName()
+        public string GetTeamName()
         {
             return this.teamName;
         }
-        public void setTeamMembers(string[] teamMembers)
+        public void SetTeamMembers(List<string> teamMembers)
         {
             this.teamMembers = teamMembers;
         }
-        public string[] getTeamMembers()
+        public List<string> GetTeamMembers()
         {
-            return teamMembers;
+            return this.teamMembers;
         }
 
     }

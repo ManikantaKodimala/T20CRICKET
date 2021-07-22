@@ -34,7 +34,7 @@ namespace T20Cricket
             }
             else if (resultOfShot == -1)
             {
-                string[] commentary = { "It's a wicket", "edge and taken" };
+                string[] commentary = { "It's a wicket"};
                 Console.WriteLine(commentary[random.Next(0, 2)] + " - 0 Runs");
             }
             else
