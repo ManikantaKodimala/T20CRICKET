@@ -22,7 +22,7 @@ namespace T20Cricket
             teamName = Console.ReadLine();
             team2 = new Team(teamName);
             GetTeamMembers(ref teamMembers);
-            team1.setTeamMembers(teamMembers);
+            team2.setTeamMembers(teamMembers);
 
             game.StartInnings(team1, totalBalls, totalWickets);
             game.StartInnings(team2, totalBalls, totalWickets);
