@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 namespace T20Cricket
 {
     public class Team
@@ -6,13 +7,12 @@ namespace T20Cricket
         private string teamName;
         private int score = 0;
         private int wicketslost = 0;
-        private string[] teamMembers;
-
+        private List<string> teamMembers;
+        public bool isSecondInnings = false;
         public Team(string name)
         {
             teamName = name;
         }
-
         public void setScore(int score)
         {
             this.score += score;
@@ -31,19 +31,27 @@ namespace T20Cricket
         {
             return wicketslost;
         }
-
-        public string getTeamName()
+        public string GetTeamName()
         {
             return this.teamName;
         }
-        public void setTeamMembers(string[] teamMembers)
+        public void SetTeamMembers()
         {
-            this.teamMembers = teamMembers;
+            teamMembers = new List<string>();
+            Console.WriteLine("Names of Team members");
+            for (int i = 0; i < 11; i++)
+            {
+                teamMembers.Add(Console.ReadLine().Trim());
+            }
         }
-        public string[] getTeamMembers()
+        public List<string> getTeamMembers()
         {
             return teamMembers;
         }
-
+        public string GetATeamMember()
+        {
+            Random random = new Random();
+            return teamMembers[random.Next(0, 11)];
+        }
     }
 }
