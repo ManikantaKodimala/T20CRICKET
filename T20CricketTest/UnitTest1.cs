@@ -1,55 +1,94 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using T20Cricket;
 using System;
+
 namespace T20CricketTest
 {
     [TestClass]
     public class UnitTest1
     {
         Random random = new Random(5);
-        Result result = new Result();
+        static Game game = new Game("/Users/kodimalamanikanta/Manikanta/Traning/C#/T20Cricket/Outcomes.json");
+        static PredictScore predictScore = new PredictScore();
         [TestMethod]
-        public void TestResultOfShotForBouncerGood()
+        public void TestResultOfShotForBouncer()
         {
 
-            int[] runs = { 4, 6 };
+            int[] runs = { 1, 2, 4 };
             string shotType = "Pull", shortTiming = "Good";
+            int expected = runs[random.Next(0, 3)];
+
+            int received = predictScore.PredictOutcome("Bouncer", shotType, shortTiming, game.GetOutcomes());
+
+            Console.WriteLine(expected);
+            Console.WriteLine(received);
+            Assert.AreEqual(expected, received);
+        }
+        [TestMethod]
+        public void TestResultOfShotForInswinger()
+        {
+
+            int[] runs = { -1, 0 };
+            string shotType = "CoverDrive", shortTiming = "Late";
             int expected = runs[random.Next(0, 2)];
 
-            int received = result.ResultOfShotForBouncer(shotType, shortTiming);
-
+            int received = predictScore.PredictOutcome("InSwinger", shotType, shortTiming, game.GetOutcomes());
+            Console.WriteLine(expected);
+            Console.WriteLine(received);
             Assert.AreEqual(expected, received);
         }
         [TestMethod]
-        public void TestResultOfShotForBouncerEarly()
+        public void TestResultOfShotForOffBreak()
         {
-            string shotType = "Pull", shortTiming = "Early";
-            int expected = -1;
 
-            int received = result.ResultOfShotForBouncer(shotType, shortTiming);
+            int[] runs = { 4 };
+            string shotType = "Sweep", shortTiming = "Perfect";
+            int expected = 4;
 
+            int received = predictScore.PredictOutcome("OffBreak", shotType, shortTiming, game.GetOutcomes());
+            Console.WriteLine(expected);
+            Console.WriteLine(received);
             Assert.AreEqual(expected, received);
         }
         [TestMethod]
-        public void TestResultOfShotForBouncerLate()
+        public void TestResultOfShotForYorker()
         {
-            string shotType = "Pull", shortTiming = "Late";
-            int expected = -1;
 
-            int received = result.ResultOfShotForBouncer(shotType, shortTiming);
+            int[] runs = { 0, 1, 2 };
+            string shotType = "Straight", shortTiming = "Good";
+            int expected = runs[random.Next(0, 3)];
 
+            int received = predictScore.PredictOutcome("Yorker", shotType, shortTiming, game.GetOutcomes());
+            Console.WriteLine(expected);
+            Console.WriteLine(received);
             Assert.AreEqual(expected, received);
         }
         [TestMethod]
-        public void TestResultOfShotForBouncerPerfect()
+        public void TestResultOfShotForOffCutter()
         {
-            int[] runs = { 4, 6 };
-            string shotType = "Pull", shortTiming = "Perfect";
-            int expected = runs[random.Next(0, 2)];
 
-            int received = result.ResultOfShotForBouncer(shotType, shortTiming);
+            int[] runs = { 6 };
+            string shotType = "CoverDrive", shortTiming = "Perfect";
+            int expected = 6;
 
+            int received = predictScore.PredictOutcome("OffCutter", shotType, shortTiming, game.GetOutcomes());
+            Console.WriteLine(expected);
+            Console.WriteLine(received);
             Assert.AreEqual(expected, received);
         }
+        [TestMethod]
+        public void TestResultOfShotForDoosra()
+        {
+
+            int[] runs = { 1, 2, 4 };
+            string shotType = "Sweep", shortTiming = "Good";
+            int expected = runs[random.Next(0, 3)];
+
+            int received = predictScore.PredictOutcome("Doosra", shotType, shortTiming, game.GetOutcomes());
+            Console.WriteLine(expected);
+            Console.WriteLine(received);
+            Assert.AreEqual(expected, received);
+        }
+
     }
 }
