@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.IO;
@@ -11,7 +10,7 @@ namespace T20Cricket
 
         public List<Strategy> GetOutcomes()
         {
-            outcomesJsonString = File.ReadAllText("src/resources/Outcomes.json");
+            outcomesJsonString = File.ReadAllText("/Users/kodimalamanikanta/Manikanta/Traning/C#/T20Cricket/src/resources/Outcomes.json");
             outcomes = JsonConvert.DeserializeObject<List<Strategy>>(outcomesJsonString);
             return outcomes;
         }

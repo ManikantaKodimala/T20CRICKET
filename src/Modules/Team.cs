@@ -9,25 +9,25 @@ namespace T20Cricket
         private int wicketslost = 0;
         private List<string> teamMembers;
         public bool isSecondInnings = false;
-        public Team(string name)
+        public Team(int teamNumber)
         {
-            teamName = name;
+            SetTeamDetails(teamNumber);
         }
-        public void setScore(int score)
+        public void SetScore(int score)
         {
             this.score += score;
         }
-        public int getScore()
+        public int GetScore()
         {
             return score;
         }
-        public void setWicket(int wicket = 1)
+        public void SetWicket(int wicket = 1)
         {
             if (wicket == 0)
                 wicketslost = 0;
             wicketslost += wicket;
         }
-        public int getWickets()
+        public int GetWickets()
         {
             return wicketslost;
         }
@@ -44,9 +44,16 @@ namespace T20Cricket
                 teamMembers.Add(Console.ReadLine().Trim());
             }
         }
-        public List<string> getTeamMembers()
+        public List<string> GetTeamMembers()
         {
             return teamMembers;
+        }
+        public void SetTeamDetails(int teamNumber)
+        {
+            Console.WriteLine("Team-{0} Name:", teamNumber);
+            string teamName = Console.ReadLine();
+            this.teamName = teamName;
+            this.SetTeamMembers();
         }
         public string GetATeamMember()
         {

@@ -8,7 +8,8 @@ namespace T20CricketTest
     public class UnitTest1
     {
         Random random = new Random(5);
-        static Game game = new Game("/Users/kodimalamanikanta/Manikanta/Traning/C#/T20Cricket/Outcomes.json");
+        static Game game = new Game();
+        static Outcomes outcomes = new Outcomes();
         static PredictScore predictScore = new PredictScore();
         [TestMethod]
         public void TestResultOfShotForBouncer()
@@ -18,7 +19,7 @@ namespace T20CricketTest
             string shotType = "Pull", shortTiming = "Good";
             int expected = runs[random.Next(0, 3)];
 
-            int received = predictScore.PredictOutcome("Bouncer", shotType, shortTiming, game.GetOutcomes());
+            int received = predictScore.PredictOutcome("Bouncer", shotType, shortTiming, outcomes.GetOutcomes());
 
             Console.WriteLine(expected);
             Console.WriteLine(received);
@@ -32,7 +33,7 @@ namespace T20CricketTest
             string shotType = "CoverDrive", shortTiming = "Late";
             int expected = runs[random.Next(0, 2)];
 
-            int received = predictScore.PredictOutcome("InSwinger", shotType, shortTiming, game.GetOutcomes());
+            int received = predictScore.PredictOutcome("InSwinger", shotType, shortTiming, outcomes.GetOutcomes());
             Console.WriteLine(expected);
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);
@@ -45,7 +46,7 @@ namespace T20CricketTest
             string shotType = "Sweep", shortTiming = "Perfect";
             int expected = 4;
 
-            int received = predictScore.PredictOutcome("OffBreak", shotType, shortTiming, game.GetOutcomes());
+            int received = predictScore.PredictOutcome("OffBreak", shotType, shortTiming, outcomes.GetOutcomes());
             Console.WriteLine(expected);
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);
@@ -58,7 +59,7 @@ namespace T20CricketTest
             string shotType = "Straight", shortTiming = "Good";
             int expected = runs[random.Next(0, 3)];
 
-            int received = predictScore.PredictOutcome("Yorker", shotType, shortTiming, game.GetOutcomes());
+            int received = predictScore.PredictOutcome("Yorker", shotType, shortTiming, outcomes.GetOutcomes());
             Console.WriteLine(expected);
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);
@@ -71,7 +72,7 @@ namespace T20CricketTest
             string shotType = "CoverDrive", shortTiming = "Perfect";
             int expected = 6;
 
-            int received = predictScore.PredictOutcome("OffCutter", shotType, shortTiming, game.GetOutcomes());
+            int received = predictScore.PredictOutcome("OffCutter", shotType, shortTiming, outcomes.GetOutcomes());
             Console.WriteLine(expected);
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);
@@ -84,7 +85,7 @@ namespace T20CricketTest
             string shotType = "Sweep", shortTiming = "Good";
             int expected = runs[random.Next(0, 3)];
 
-            int received = predictScore.PredictOutcome("Doosra", shotType, shortTiming, game.GetOutcomes());
+            int received = predictScore.PredictOutcome("Doosra", shotType, shortTiming, outcomes.GetOutcomes());
             Console.WriteLine(expected);
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);

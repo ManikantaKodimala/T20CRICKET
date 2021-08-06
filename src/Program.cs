@@ -6,9 +6,11 @@ namespace T20Cricket
         public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Green;
+            while (true)
+            {
             Console.WriteLine("Please Select the one of the form to run application");
-            Console.WriteLine(" a.Test Each Module \n b.Test Game");
-            String option = Console.ReadLine();
+                Console.WriteLine(" a.Test Each Module \n b.Test Game\n c.exit");
+                string option = Console.ReadLine();
             switch (option)
             {
                 case "a":
@@ -17,21 +19,21 @@ namespace T20Cricket
                 case "b":
                     CompleteMatch();
                     break;
+                    case "c":
+                        return;
+                }
             }
         }
         private static void CompleteMatch()
         {
             int totalBalls = 10, totalWickets = 10;
             string[] teamMembers = new string[11];
-            Team team1, team2;
-            Game game = new Game("src/resources/Outcomes.json");
-            EachModule eachModules = new EachModule();
-            team1 = eachModules.SetTeamDetails(1);
-            team2 = eachModules.SetTeamDetails(2);
+            Team team1 = new Team(1);
+            Team team2 = new Team(2);
+            Game game = new Game();
             game.StartInnings(team1, totalBalls, totalWickets);
             game.StartInnings(team2, totalBalls, totalWickets);
             game.GameResult(team1, team2);
-
         }
         private static void TestModules()
         {
@@ -40,7 +42,7 @@ namespace T20Cricket
             while (true)
             {
                 Console.WriteLine("Select the module");
-                Console.WriteLine(" a.Predict Score \n b.Commentry \n c.Superover");
+                Console.WriteLine(" a.Predict Score \n b.Commentry \n c.Superover\n d.exit");
                 option = Console.ReadLine();
                 switch (option)
                 {
@@ -53,6 +55,8 @@ namespace T20Cricket
                     case "c":
                         eachModules.SuperOverModule();
                         break;
+                    case "d":
+                        return;
                 }
             }
         }
