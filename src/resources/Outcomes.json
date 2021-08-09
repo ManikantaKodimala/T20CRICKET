@@ -280,7 +280,7 @@
     ]
   },
   {
-    "ballType": "Slower",
+    "ballType": "SlowerBall",
     "bestShots": [
       {
         "shotName": "Pull",
@@ -339,7 +339,7 @@
         ]
       },
       {
-        "shotName": "UpperCut",
+        "shotName": "Straight",
         "Timing": [
           {
             "timeType": "Early",
@@ -351,7 +351,7 @@
           },
           {
             "timeType": "Perfect",
-            "outcome": [6]
+            "outcome": [4]
           },
           {
             "timeType": "Late",
@@ -465,7 +465,7 @@
     "ballType": "LegCutter",
     "bestShots": [
       {
-        "shotName": "Pull",
+        "shotName": "Flick",
         "Timing": [
           {
             "timeType": "Early",
@@ -477,7 +477,7 @@
           },
           {
             "timeType": "Perfect",
-            "outcome": [6]
+            "outcome": [4]
           },
           {
             "timeType": "Late",
@@ -486,7 +486,7 @@
         ]
       },
       {
-        "shotName": "UpperCut",
+        "shotName": "Sweep",
         "Timing": [
           {
             "timeType": "Early",
@@ -498,7 +498,7 @@
           },
           {
             "timeType": "Perfect",
-            "outcome": [6]
+            "outcome": [4]
           },
           {
             "timeType": "Late",

@@ -41,10 +41,11 @@ namespace T20Cricket
             Commentary commentary = new Commentary();
             int score;
             string[] input;
+            Logger log = new Logger();
 
             input = Console.ReadLine().Trim().Split();
             score = predictScore.PredictOutcome(input[0], input[1], input[2], outcome);
-            commentary.CommentaryForShot(score);
+            log.LogComment(commentary.CommentaryForShot(score));
         }
     }
 }

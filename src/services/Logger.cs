@@ -5,6 +5,10 @@ namespace T20Cricket
 {
     public class Logger
     {
+        public void LogComment(string comment){
+            Console.WriteLine(comment);
+        }
+        
         public void LogScore(int score)
         {
             Console.WriteLine("{0} - Runs", score);

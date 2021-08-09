@@ -8,7 +8,7 @@ namespace T20Cricket
         private int score = 0;
         private int wicketslost = 0;
         private List<string> teamMembers;
-        // public bool isSecondInnings = false; 
+        public bool isSecondInnings = false; 
         public Team(int teamNumber)
         {
             SetTeamDetails(teamNumber);

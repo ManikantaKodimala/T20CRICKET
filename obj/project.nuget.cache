@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "linrzgysytCYfMJPsa90SLb5KNFanPkCAWKx406Rp+lxKiz4C5Khi4u4cWe3ANO4aPsWdyebBAnalFFEIpRSuQ==",
+  "dgSpecHash": "hPM60Ysc+vfaDuZOXXMRX5qlxGD6rLMWBflFH9Aqx+QKQp+knElk4nALQQCOuBYIWLR05E3ctC0a6vgK/h6W5Q==",
   "success": true,
-  "projectFilePath": "/Users/kodimalamanikanta/Manikanta/Traning/C#/T20Cricket/T20Cricket.csproj",
+  "projectFilePath": "/Users/kodimalamanikanta/Manikanta/Traning/T20CRICKET/T20Cricket.csproj",
   "expectedPackageFiles": [
     "/Users/kodimalamanikanta/.nuget/packages/jsonnet.contractresolvers/2.0.0/jsonnet.contractresolvers.2.0.0.nupkg.sha512",
     "/Users/kodimalamanikanta/.nuget/packages/microsoft.codecoverage/16.10.0/microsoft.codecoverage.16.10.0.nupkg.sha512",
@@ -88,7 +88,9 @@
     "/Users/kodimalamanikanta/.nuget/packages/system.threading.tasks.extensions/4.3.0/system.threading.tasks.extensions.4.3.0.nupkg.sha512",
     "/Users/kodimalamanikanta/.nuget/packages/system.threading.timer/4.3.0/system.threading.timer.4.3.0.nupkg.sha512",
     "/Users/kodimalamanikanta/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "/Users/kodimalamanikanta/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512"
+    "/Users/kodimalamanikanta/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
+    "/Users/kodimalamanikanta/.nuget/packages/microsoft.netcore.app.ref/3.1.0/microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "/Users/kodimalamanikanta/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.10/microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
   ],
   "logs": []
 }

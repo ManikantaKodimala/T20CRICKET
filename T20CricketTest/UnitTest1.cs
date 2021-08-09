@@ -11,6 +11,7 @@ namespace T20CricketTest
         static Game game = new Game();
         static Outcomes outcomes = new Outcomes();
         static PredictScore predictScore = new PredictScore();
+
         [TestMethod]
         public void TestResultOfShotForBouncer()
         {
@@ -25,6 +26,22 @@ namespace T20CricketTest
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);
         }
+
+        [TestMethod]
+        public void TestResultOfShotForOutSwinger()
+        {
+
+            int[] runs = { 1, 2};
+            string shotType = "CoverDrive", shortTiming = "Good";
+            int expected = runs[random.Next(0, 2)];
+
+            int received = predictScore.PredictOutcome("OutSwinger", shotType, shortTiming, outcomes.GetOutcomes());
+
+            Console.WriteLine(expected);
+            Console.WriteLine(received);
+            Assert.AreEqual(expected, received);
+        }
+
         [TestMethod]
         public void TestResultOfShotForInswinger()
         {
@@ -38,6 +55,21 @@ namespace T20CricketTest
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);
         }
+
+        [TestMethod]
+        public void TestResultOfShotForLegCutter()
+        {
+
+            int[] runs = { -1, 0 };
+            string shotType = "Sweep", shortTiming = "Late";
+            int expected = runs[random.Next(0, 2)];
+
+            int received = predictScore.PredictOutcome("LegCutter", shotType, shortTiming, outcomes.GetOutcomes());
+            Console.WriteLine(expected);
+            Console.WriteLine(received);
+            Assert.AreEqual(expected, received);
+        }
+
         [TestMethod]
         public void TestResultOfShotForOffBreak()
         {
@@ -51,6 +83,7 @@ namespace T20CricketTest
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);
         }
+        
         [TestMethod]
         public void TestResultOfShotForYorker()
         {
@@ -64,6 +97,7 @@ namespace T20CricketTest
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);
         }
+
         [TestMethod]
         public void TestResultOfShotForOffCutter()
         {
@@ -77,6 +111,35 @@ namespace T20CricketTest
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);
         }
+
+        [TestMethod]
+        public void TestResultOfShotForSlowerBall()
+        {
+
+            int[] runs = { 6 };
+            string shotType = "Pull", shortTiming = "Perfect";
+            int expected = 6;
+
+            int received = predictScore.PredictOutcome("SlowerBall", shotType, shortTiming, outcomes.GetOutcomes());
+            Console.WriteLine(expected);
+            Console.WriteLine(received);
+            Assert.AreEqual(expected, received);
+        }
+
+        [TestMethod]
+        public void TestResultOfShotForPace()
+        {
+
+            int[] runs = { 4 };
+            string shotType = "Straight", shortTiming = "Perfect";
+            int expected = 4;
+
+            int received = predictScore.PredictOutcome("Pace", shotType, shortTiming, outcomes.GetOutcomes());
+            Console.WriteLine(expected);
+            Console.WriteLine(received);
+            Assert.AreEqual(expected, received);
+        }
+
         [TestMethod]
         public void TestResultOfShotForDoosra()
         {
