@@ -24,6 +24,7 @@ namespace T20Cricket
                 }
             }
         }
+
         private static void CompleteMatch()
         {
             int totalBalls = 10, totalWickets = 10;
@@ -35,6 +36,7 @@ namespace T20Cricket
             game.StartInnings(team2, totalBalls, totalWickets);
             game.GameResult(team1, team2);
         }
+        
         private static void TestModules()
         {
             string option;

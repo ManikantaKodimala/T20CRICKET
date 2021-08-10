@@ -16,6 +16,7 @@ namespace T20Cricket
             log = new Logger();
             commentary = new Commentary();
         }
+
         public void GameResult(Team team1, Team team2)
         {
             int totalWickets = 10;
@@ -35,6 +36,7 @@ namespace T20Cricket
                 Console.WriteLine(team2.GetTeamName() + " won by " + (totalWickets - team2.GetWickets()) + " Wickets 🎉🎉🎉");
             }
         }
+
         public void StartInnings(Team team, int totalBalls, int totalWickets)
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -51,6 +53,7 @@ namespace T20Cricket
             }
             log.ScoreCard(team);
         }
+        
         public void SuperOverMatch(Team team1, Team team2)
         {
             SuperOver superOver = new SuperOver();
