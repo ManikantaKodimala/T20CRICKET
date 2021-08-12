@@ -20,7 +20,7 @@ namespace T20CricketTest
             string shotType = "Pull", shortTiming = "Good";
             int expected = runs[random.Next(0, 3)];
 
-            int received = predictScore.PredictOutcome("Bouncer", shotType, shortTiming, outcomes.GetOutcomes());
+            int received = predictScore.PredictOutcome("Bouncer", shotType, shortTiming, outcomes.GetOutcomes("../../src/resources/Outcomes.json"));
 
             Console.WriteLine(expected);
             Console.WriteLine(received);
@@ -35,7 +35,7 @@ namespace T20CricketTest
             string shotType = "CoverDrive", shortTiming = "Good";
             int expected = runs[random.Next(0, 2)];
 
-            int received = predictScore.PredictOutcome("OutSwinger", shotType, shortTiming, outcomes.GetOutcomes());
+            int received = predictScore.PredictOutcome("OutSwinger", shotType, shortTiming, outcomes.GetOutcomes("../../src/resources/Outcomes.json"));
 
             Console.WriteLine(expected);
             Console.WriteLine(received);
@@ -50,7 +50,7 @@ namespace T20CricketTest
             string shotType = "CoverDrive", shortTiming = "Late";
             int expected = runs[random.Next(0, 2)];
 
-            int received = predictScore.PredictOutcome("InSwinger", shotType, shortTiming, outcomes.GetOutcomes());
+            int received = predictScore.PredictOutcome("InSwinger", shotType, shortTiming, outcomes.GetOutcomes("../../src/resources/Outcomes.json"));
             Console.WriteLine(expected);
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);
@@ -64,7 +64,7 @@ namespace T20CricketTest
             string shotType = "Sweep", shortTiming = "Late";
             int expected = runs[random.Next(0, 2)];
 
-            int received = predictScore.PredictOutcome("LegCutter", shotType, shortTiming, outcomes.GetOutcomes());
+            int received = predictScore.PredictOutcome("LegCutter", shotType, shortTiming, outcomes.GetOutcomes("../../src/resources/Outcomes.json"));
             Console.WriteLine(expected);
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);
@@ -78,7 +78,7 @@ namespace T20CricketTest
             string shotType = "Sweep", shortTiming = "Perfect";
             int expected = 4;
 
-            int received = predictScore.PredictOutcome("OffBreak", shotType, shortTiming, outcomes.GetOutcomes());
+            int received = predictScore.PredictOutcome("OffBreak", shotType, shortTiming, outcomes.GetOutcomes("../../src/resources/Outcomes.json"));
             Console.WriteLine(expected);
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);
@@ -92,7 +92,7 @@ namespace T20CricketTest
             string shotType = "Straight", shortTiming = "Good";
             int expected = runs[random.Next(0, 3)];
 
-            int received = predictScore.PredictOutcome("Yorker", shotType, shortTiming, outcomes.GetOutcomes());
+            int received = predictScore.PredictOutcome("Yorker", shotType, shortTiming, outcomes.GetOutcomes("../../src/resources/Outcomes.json"));
             Console.WriteLine(expected);
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);
@@ -106,7 +106,7 @@ namespace T20CricketTest
             string shotType = "CoverDrive", shortTiming = "Perfect";
             int expected = 6;
 
-            int received = predictScore.PredictOutcome("OffCutter", shotType, shortTiming, outcomes.GetOutcomes());
+            int received = predictScore.PredictOutcome("OffCutter", shotType, shortTiming, outcomes.GetOutcomes("../../src/resources/Outcomes.json"));
             Console.WriteLine(expected);
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);
@@ -120,7 +120,7 @@ namespace T20CricketTest
             string shotType = "Pull", shortTiming = "Perfect";
             int expected = 6;
 
-            int received = predictScore.PredictOutcome("SlowerBall", shotType, shortTiming, outcomes.GetOutcomes());
+            int received = predictScore.PredictOutcome("SlowerBall", shotType, shortTiming, outcomes.GetOutcomes("../../src/resources/Outcomes.json"));
             Console.WriteLine(expected);
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);
@@ -134,7 +134,7 @@ namespace T20CricketTest
             string shotType = "Straight", shortTiming = "Perfect";
             int expected = 4;
 
-            int received = predictScore.PredictOutcome("Pace", shotType, shortTiming, outcomes.GetOutcomes());
+            int received = predictScore.PredictOutcome("Pace", shotType, shortTiming, outcomes.GetOutcomes("../../src/resources/Outcomes.json"));
             Console.WriteLine(expected);
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);
@@ -148,7 +148,7 @@ namespace T20CricketTest
             string shotType = "Sweep", shortTiming = "Good";
             int expected = runs[random.Next(0, 3)];
 
-            int received = predictScore.PredictOutcome("Doosra", shotType, shortTiming, outcomes.GetOutcomes());
+            int received = predictScore.PredictOutcome("Doosra", shotType, shortTiming, outcomes.GetOutcomes("../../src/resources/Outcomes.json"));
             Console.WriteLine(expected);
             Console.WriteLine(received);
             Assert.AreEqual(expected, received);

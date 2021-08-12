@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "hPM60Ysc+vfaDuZOXXMRX5qlxGD6rLMWBflFH9Aqx+QKQp+knElk4nALQQCOuBYIWLR05E3ctC0a6vgK/h6W5Q==",
+  "dgSpecHash": "ODpGIJL+DmmpqZbljA9GJ12aAI2KzlEJYaR069sFjipmAcFYV+IzEk7v4Q7wZNi8Ty+cYrmw+Dk9oKwsw3ld/g==",
   "success": true,
   "projectFilePath": "/Users/kodimalamanikanta/Manikanta/Traning/T20CRICKET/T20Cricket.csproj",
   "expectedPackageFiles": [
+    "/Users/kodimalamanikanta/.nuget/packages/coverlet.collector/3.1.0/coverlet.collector.3.1.0.nupkg.sha512",
+    "/Users/kodimalamanikanta/.nuget/packages/coverlet.msbuild/3.1.0/coverlet.msbuild.3.1.0.nupkg.sha512",
     "/Users/kodimalamanikanta/.nuget/packages/jsonnet.contractresolvers/2.0.0/jsonnet.contractresolvers.2.0.0.nupkg.sha512",
     "/Users/kodimalamanikanta/.nuget/packages/microsoft.codecoverage/16.10.0/microsoft.codecoverage.16.10.0.nupkg.sha512",
     "/Users/kodimalamanikanta/.nuget/packages/microsoft.net.test.sdk/16.10.0/microsoft.net.test.sdk.16.10.0.nupkg.sha512",

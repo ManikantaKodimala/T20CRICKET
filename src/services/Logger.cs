@@ -21,22 +21,6 @@ namespace T20Cricket
             Console.ForegroundColor = ConsoleColor.Green;
         }
 
-        public void LogOfEachBall(Team team, int resultOfShot, Commentary commentary)
-        {
-            if (resultOfShot == -1)
-            {
-                team.SetWicket();
-                Console.ForegroundColor = ConsoleColor.Red;
-                commentary.CommentaryForShot(resultOfShot);
-                Console.ForegroundColor = ConsoleColor.Green;
-            }
-            else
-            {
-                commentary.CommentaryForShot(resultOfShot);
-                team.SetScore(resultOfShot);
-            }
-        }
-
         public void LogBowlingCards(List<string> bolwingCards)
         {
             Console.ForegroundColor = ConsoleColor.White;

@@ -10,6 +10,7 @@ namespace T20Cricket
             SuperOver superOver = new SuperOver();
             string[] teamMembers = new string[11];
             int totalBalls = 6, totalWickets = 2;
+            Result resultOfMatch = new Result();
             Team team1 = new Team(1);
             Team team2 = new Team(2);
 
@@ -17,7 +18,10 @@ namespace T20Cricket
             Console.WriteLine("Target runs : " + (team1.GetScore() + 1));
             team2.isSecondInnings = true;
             superOver.StartSuperOver(team2, team1, totalBalls, totalWickets, outcome);
-            superOver.SuperOverResult(team1, team2);
+            bool isSuperover = resultOfMatch.GetGameResult(team1,team2);
+            if(isSuperover){
+                superOver.StartSuperOver(team2, team1, totalBalls, totalWickets, outcome);
+            }
         }
 
         public void PredictionScoreModule()
@@ -45,7 +49,7 @@ namespace T20Cricket
 
             input = Console.ReadLine().Trim().Split();
             score = predictScore.PredictOutcome(input[0], input[1], input[2], outcome);
-            log.LogComment(commentary.CommentaryForShot(score));
+            log.LogComment(commentary.GetCommentaryForShot(score));
         }
     }
 }

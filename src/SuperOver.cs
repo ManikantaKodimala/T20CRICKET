@@ -8,22 +8,18 @@ namespace T20Cricket
         private PredictScore predictScore;
         private Commentary commentary;
         private List<string> bolwingCards;
-        private string[] typesOfBolwing = { "Bouncer", "Inswinger", "Outswinger", "OffCutter", "Yorker", "OffBreak", "LegCutter", "SlowerBall", "Pace", "Doosra" };
+        public enum typesOfBolwing { Bouncer=1, Inswinger, Outswinger, OffCutter, Yorker, OffBreak, LegCutter, SlowerBall, Pace, Doosra };
 
-        private void ScoreCard(Team team)
-        {
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine(team.GetTeamName().ToUpper() + " scored : " + team.GetScore());
-            Console.ForegroundColor = ConsoleColor.Green;
-        }
-
-        private List<string> GetBowlingCards(string[] bowlingTypes)
+        private List<string> GetBowlingCards()
         {
             Random random = new Random();
+            string[] balls= Enum.GetNames(typeof(typesOfBolwing));
+            string ball;
             List<string> ballTypes = new List<string>();
             for (int i = 0; i < 6; i++)
             {
-                ballTypes.Add(bowlingTypes[random.Next(0, 9)]);
+                ball=balls[random.Next(0, 9)];
+                ballTypes.Add(ball);
             }
             return ballTypes;
         }
@@ -32,9 +28,10 @@ namespace T20Cricket
         {
             string[] input;
             int resultOfShot = 0;
-            string bowlType, bowlerName = bowlingTeam.GetATeamMember();
+            string comment,bowlType, bowlerName = bowlingTeam.GetATeamMember();
             string batsManName = battingTeam.GetATeamMember();
             Logger log = new Logger();
+            SetSuperOver(battingTeam,bowlingTeam);
             log.LogBowlingCards(bolwingCards);
 
             Console.WriteLine("START SUPER OVER !");
@@ -44,31 +41,17 @@ namespace T20Cricket
                 bowlType = bolwingCards[6 - totalBalls];
                 resultOfShot = predictScore.PredictOutcome(bowlType, input[0], input[1], outcomes);
                 log.LogSuperOverCommentary(bowlerName, bowlType, input[0], input[1], batsManName);
-                log.LogOfEachBall(battingTeam, resultOfShot, commentary);
+                comment = commentary.GetCommentaryForShot(resultOfShot);
+                log.LogComment(comment);
                 if (resultOfShot < 0)
                 {
                     batsManName = battingTeam.GetATeamMember();
+                    battingTeam.SetWicket();
                 }
                 totalBalls -= 1;
+                battingTeam.SetScore(resultOfShot);
             }
-            ScoreCard(battingTeam);
-        }
-
-        public void SuperOverResult(Team team1, Team team2)
-        {
-            int totalWickets = 10;
-            if (team1.GetScore() == team2.GetScore())
-            {
-                Console.WriteLine("It's a tie");
-            }
-            else if (team1.GetScore() > team2.GetScore())
-            {
-                Console.WriteLine(team1.GetTeamName() + " won by " + (team1.GetScore() - team2.GetScore()) + "Runs 🎉🎉🎉");
-            }
-            else
-            {
-                Console.WriteLine(team2.GetTeamName() + " won by " + (totalWickets - team2.GetWickets()) + " Wickets 🎉🎉🎉");
-            }
+            log.ScoreCard(battingTeam);
         }
 
         public void SetSuperOver(Team team1, Team team2)
@@ -79,7 +62,7 @@ namespace T20Cricket
             team2.SetScore(0);
             predictScore = new PredictScore();
             commentary = new Commentary();
-            bolwingCards = GetBowlingCards(typesOfBolwing);
+            bolwingCards = GetBowlingCards();
         }
     }
 }

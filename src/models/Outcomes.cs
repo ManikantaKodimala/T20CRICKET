@@ -9,9 +9,9 @@ namespace T20Cricket
         private string outcomesJsonString;
         private List<Strategy> outcomes;
 
-        public List<Strategy> GetOutcomes()
+        public List<Strategy> GetOutcomes(string filePath="./src/resources/Outcomes.json")
         {
-            outcomesJsonString = File.ReadAllText("/Users/kodimalamanikanta/Manikanta/Traning/T20CRICKET/src/resources/Outcomes.json");
+            outcomesJsonString = File.ReadAllText(filePath);
             outcomes = JsonConvert.DeserializeObject<List<Strategy>>(outcomesJsonString);
             return outcomes;
         }

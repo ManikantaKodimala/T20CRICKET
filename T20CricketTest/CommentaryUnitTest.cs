@@ -21,7 +21,7 @@ namespace T20CricketTest
             int score =1;
             string expected = commentary[random.Next(0,commentary.Length)]+" - 1 Run";
 
-            string received =comment.CommentaryForShot(score);
+            string received =comment.GetCommentaryForShot(score);
 
             Assert.AreEqual(expected, received);
         }
@@ -36,7 +36,7 @@ namespace T20CricketTest
             int score =2;
             string expected = commentary[random.Next(0,commentary.Length)]+" - 2 Runs";
 
-            string received =comment.CommentaryForShot(score);
+            string received =comment.GetCommentaryForShot(score);
 
             Assert.AreEqual(expected, received);
         }
@@ -52,7 +52,7 @@ namespace T20CricketTest
             int score =3;
             string expected = commentary[random.Next(0,commentary.Length)]+" - 3 Runs";
 
-            string received =comment.CommentaryForShot(score);
+            string received =comment.GetCommentaryForShot(score);
 
             Assert.AreEqual(expected, received);
         }
@@ -68,7 +68,7 @@ namespace T20CricketTest
             int score =4;
             string expected = commentary[random.Next(0,commentary.Length)]+" - 4 Runs";
 
-            string received =comment.CommentaryForShot(score);
+            string received =comment.GetCommentaryForShot(score);
 
             Assert.AreEqual(expected, received);
         }
@@ -83,7 +83,7 @@ namespace T20CricketTest
             int score =6;
             string expected = commentary[random.Next(0,commentary.Length)]+" - 6 Runs";
 
-            string received =comment.CommentaryForShot(score);
+            string received =comment.GetCommentaryForShot(score);
 
             Assert.AreEqual(expected, received);
         }
@@ -96,7 +96,7 @@ namespace T20CricketTest
             int score =-1;
             string expected = commentary[random.Next(0,commentary.Length)]+" - 0 Runs";
 
-            string received =comment.CommentaryForShot(score);
+            string received =comment.GetCommentaryForShot(score);
 
             Assert.AreEqual(expected, received);
         }
@@ -111,7 +111,7 @@ namespace T20CricketTest
             int score =0;
             string expected = commentary[random.Next(0,commentary.Length)]+" - 0 Runs";
 
-            string received =comment.CommentaryForShot(score);
+            string received =comment.GetCommentaryForShot(score);
 
             Assert.AreEqual(expected, received);
         }

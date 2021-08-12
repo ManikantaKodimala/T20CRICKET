@@ -17,43 +17,30 @@ namespace T20Cricket
             commentary = new Commentary();
         }
 
-        public void GameResult(Team team1, Team team2)
-        {
-            int totalWickets = 10;
-
-            if (team1.GetScore() == team2.GetScore())
-            {
-                Console.WriteLine("It's a tie \n Moving on to Super Over ");
-                SuperOverMatch(team1, team2);
-                totalWickets = 2;
-            }
-            if (team1.GetScore() > team2.GetScore())
-            {
-                Console.WriteLine(team1.GetTeamName() + " won by " + (team1.GetScore() - team2.GetScore()) + "Runs 🎉🎉🎉");
-            }
-            else
-            {
-                Console.WriteLine(team2.GetTeamName() + " won by " + (totalWickets - team2.GetWickets()) + " Wickets 🎉🎉🎉");
-            }
-        }
-
         public void StartInnings(Team team, int totalBalls, int totalWickets)
         {
             Console.ForegroundColor = ConsoleColor.Green;
             string[] input;
             int resultOfShot = 0;
+            string comment;
             Console.WriteLine("START THE MATCH !");
 
             while (totalBalls > 0 && team.GetWickets() < totalWickets)
             {
                 input = Console.ReadLine().Trim().Split();
                 resultOfShot = predictScore.PredictOutcome(input[0], input[1], input[2], outcome.GetOutcomes());
-                log.LogOfEachBall(team, resultOfShot, commentary);
+                comment = commentary.GetCommentaryForShot(resultOfShot);
+                log.LogComment(comment);
+                if(resultOfShot == -1)
+                {
+                    team.SetWicket();
+                }
+                team.SetScore(resultOfShot);
                 totalBalls -= 1;
             }
             log.ScoreCard(team);
         }
-        
+
         public void SuperOverMatch(Team team1, Team team2)
         {
             SuperOver superOver = new SuperOver();

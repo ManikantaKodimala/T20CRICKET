@@ -17,7 +17,9 @@ namespace T20Cricket
 
         public void SetScore(int score)
         {
-            this.score += score;
+            if(score>=0){
+                this.score += score;
+            }
         }
 
         public int GetScore()

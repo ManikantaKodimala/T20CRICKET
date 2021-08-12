@@ -12,12 +12,16 @@
           "MSTest.TestAdapter": "2.2.5",
           "MSTest.TestFramework": "2.2.5",
           "Microsoft.NET.Test.Sdk": "16.10.0",
-          "Newtonsoft.Json": "13.0.1"
+          "Newtonsoft.Json": "13.0.1",
+          "coverlet.collector": "3.1.0",
+          "coverlet.msbuild": "3.1.0"
         },
         "runtime": {
           "T20Cricket.dll": {}
         }
       },
+      "coverlet.collector/3.1.0": {},
+      "coverlet.msbuild/3.1.0": {},
       "JsonNet.ContractResolvers/2.0.0": {
         "dependencies": {
           "Newtonsoft.Json": "13.0.1",
@@ -1021,6 +1025,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "coverlet.collector/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YzYqSRrjoP5lULBhTDcTOjuM4IDPPi6PhFsl4w8EI4WdZhE6llt7E38Tg4CHyrS+QKwyu1+9OwkdDgluOdoBTw==",
+      "path": "coverlet.collector/3.1.0",
+      "hashPath": "coverlet.collector.3.1.0.nupkg.sha512"
+    },
+    "coverlet.msbuild/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xOv5HZagq0I6uF4vt8NVVpwcA2W/uGmNcbLStao2eMk98RQH5NFPQuouh2nWWPSZrNIhGG/iYbBn2pO4s5i+ig==",
+      "path": "coverlet.msbuild/3.1.0",
+      "hashPath": "coverlet.msbuild.3.1.0.nupkg.sha512"
     },
     "JsonNet.ContractResolvers/2.0.0": {
       "type": "package",
