@@ -17,7 +17,7 @@ namespace T20CricketTest
                                         "It's a single",
                                         "Excellent line and length"
                                     };
-            Commentary comment= new Commentary();
+            CommentaryService comment = CommentaryService.GetInstance;
             int score =1;
             string expected = commentary[random.Next(0,commentary.Length)]+" - 1 Run";
 
@@ -32,7 +32,7 @@ namespace T20CricketTest
             string[] commentary = new string[2]{ "Good running between the wickets",
                                         "Converts ones into two"
                                     };
-            Commentary comment= new Commentary();
+            CommentaryService comment = CommentaryService.GetInstance;
             int score =2;
             string expected = commentary[random.Next(0,commentary.Length)]+" - 2 Runs";
 
@@ -48,7 +48,7 @@ namespace T20CricketTest
                                         "Excellent stop at the boundary",
                                         "Excellent line and length"
                                     };
-            Commentary comment= new Commentary();
+            CommentaryService comment = CommentaryService.GetInstance;
             int score =3;
             string expected = commentary[random.Next(0,commentary.Length)]+" - 3 Runs";
 
@@ -64,7 +64,7 @@ namespace T20CricketTest
                                         "Excellent Short",
                                         "Wow that is what we call a short"
                                     };
-            Commentary comment= new Commentary();
+            CommentaryService comment = CommentaryService.GetInstance;
             int score =4;
             string expected = commentary[random.Next(0,commentary.Length)]+" - 4 Runs";
 
@@ -79,7 +79,7 @@ namespace T20CricketTest
             string[] commentary = new string[2]{ "That’s massive and out of the ground",
                                         "It’s a huge hit"
                                     };
-            Commentary comment= new Commentary();
+            CommentaryService comment = CommentaryService.GetInstance;
             int score =6;
             string expected = commentary[random.Next(0,commentary.Length)]+" - 6 Runs";
 
@@ -92,7 +92,7 @@ namespace T20CricketTest
         public void CommentryForAWicket()
         {
             string[] commentary = new string[2] { "It's a wicket", "This is what we call a ball" };
-            Commentary comment= new Commentary();
+            CommentaryService comment = CommentaryService.GetInstance;
             int score =-1;
             string expected = commentary[random.Next(0,commentary.Length)]+" - 0 Runs";
 
@@ -107,7 +107,7 @@ namespace T20CricketTest
             string[] commentary = new string[3]{ "Excellent bowling", "Good Length",
                                         "Excellent line and length"
                                     };
-            Commentary comment= new Commentary();
+            CommentaryService comment = CommentaryService.GetInstance;
             int score =0;
             string expected = commentary[random.Next(0,commentary.Length)]+" - 0 Runs";
 

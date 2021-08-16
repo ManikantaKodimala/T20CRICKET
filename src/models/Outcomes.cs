@@ -4,12 +4,12 @@ using System.IO;
 
 namespace T20Cricket
 {
-    public class Outcomes
+    public static class Outcomes
     {
-        private string outcomesJsonString;
-        private List<Strategy> outcomes;
+        private static string outcomesJsonString;
+        private static List<Strategy> outcomes;
 
-        public List<Strategy> GetOutcomes(string filePath="./src/resources/Outcomes.json")
+        public static List<Strategy> GetOutcomes(string filePath = "./src/resources/Outcomes.json")
         {
             outcomesJsonString = File.ReadAllText(filePath);
             outcomes = JsonConvert.DeserializeObject<List<Strategy>>(outcomesJsonString);

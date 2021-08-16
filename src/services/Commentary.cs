@@ -2,8 +2,23 @@ using System;
 
 namespace T20Cricket
 {
-    public class Commentary
+    public sealed class CommentaryService
     {
+        private static readonly CommentaryService instance;
+
+        private CommentaryService() { }
+        static CommentaryService()
+        {
+            instance = new CommentaryService();
+        }
+
+        public static CommentaryService GetInstance
+        {
+            get
+            {
+                return instance;
+            }
+        }
         Random random = new Random(5);
 
         public string GetCommentaryForShot(int resultOfShot)

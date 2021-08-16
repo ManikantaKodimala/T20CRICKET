@@ -1,23 +1,30 @@
 using System;
+using System.Collections.Generic;
 
 namespace T20Cricket
 {
-    public class Game
+    public struct MatchProperties
     {
-        private PredictScore predictScore;
-        private Logger log;
-        private Commentary commentary;
-        private Outcomes outcome;
+        public Team battingTeam { get; set; }
+        public Team bowlingTeam { get; set; }
+        public int totalBalls { get; set; }
+        public int totalWickets { get; set; }
+        public List<Strategy> outcomes { get; set; }
+    }
+    public sealed class Game
+    {
+        private PredictScoreService predictScore;
+        private LoggerService log;
+        private CommentaryService commentary;
 
         public Game()
         {
-            predictScore = new PredictScore();
-            outcome = new Outcomes();
-            log = new Logger();
-            commentary = new Commentary();
+            predictScore = PredictScoreService.GetInstance;
+            log = LoggerService.GetInstance;
+            commentary = CommentaryService.GetInstance;
         }
 
-        public void StartInnings(Team team, int totalBalls, int totalWickets)
+        public void StartInnings(MatchProperties matchProperties)
         {
             Console.ForegroundColor = ConsoleColor.Green;
             string[] input;
@@ -25,29 +32,37 @@ namespace T20Cricket
             string comment;
             Console.WriteLine("START THE MATCH !");
 
-            while (totalBalls > 0 && team.GetWickets() < totalWickets)
+            while (matchProperties.totalBalls > 0 && matchProperties.battingTeam.GetWickets() < matchProperties.totalWickets)
             {
                 input = Console.ReadLine().Trim().Split();
-                resultOfShot = predictScore.PredictOutcome(input[0], input[1], input[2], outcome.GetOutcomes());
+                resultOfShot = predictScore.PredictOutcome(input[0], input[1], input[2]);
                 comment = commentary.GetCommentaryForShot(resultOfShot);
                 log.LogComment(comment);
                 if(resultOfShot == -1)
                 {
-                    team.SetWicket();
+                    matchProperties.battingTeam.SetWicket();
                 }
-                team.SetScore(resultOfShot);
-                totalBalls -= 1;
+                matchProperties.battingTeam.SetScore(resultOfShot);
+                matchProperties.totalBalls -= 1;
             }
-            log.ScoreCard(team);
+            log.ScoreCard(matchProperties.battingTeam);
         }
 
         public void SuperOverMatch(Team team1, Team team2)
         {
             SuperOver superOver = new SuperOver();
+            MatchProperties matchProperties = new MatchProperties();
+            matchProperties.battingTeam = team1;
+            matchProperties.bowlingTeam = team2;
+            matchProperties.totalBalls = 6;
+            matchProperties.totalWickets = 2;
             superOver.SetSuperOver(team1, team2);
-            superOver.StartSuperOver(team1, team2, 6, 2, outcome.GetOutcomes());
+
+            superOver.StartSuperOver(matchProperties);
             Console.WriteLine("(Target runs : " + (team1.GetScore() + 1));
-            superOver.StartSuperOver(team2, team1, 6, 2, outcome.GetOutcomes());
+            matchProperties.battingTeam = team2;
+            matchProperties.bowlingTeam = team1;
+            superOver.StartSuperOver(matchProperties);
         }
     }
 }

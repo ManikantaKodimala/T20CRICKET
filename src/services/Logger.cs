@@ -3,8 +3,23 @@ using System.Collections.Generic;
 
 namespace T20Cricket
 {
-    public class Logger
+    public sealed class LoggerService
     {
+        private static readonly LoggerService instance;
+
+        private LoggerService() { }
+        static LoggerService()
+        {
+            instance = new LoggerService();
+        }
+
+        public static LoggerService GetInstance
+        {
+            get
+            {
+                return instance;
+            }
+        }
         public void LogComment(string comment){
             Console.WriteLine(comment);
         }

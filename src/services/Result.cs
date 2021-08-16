@@ -1,8 +1,23 @@
 using System;
 namespace T20Cricket
 {
-    public class Result
+    public sealed class ResultService
     {
+        private static readonly ResultService instance;
+
+        private ResultService() { }
+        static ResultService()
+        {
+            instance = new ResultService();
+        }
+
+        public static ResultService GetInstance
+        {
+            get
+            {
+                return instance;
+            }
+        }
         public bool GetGameResult(Team team1, Team team2)
         {
 

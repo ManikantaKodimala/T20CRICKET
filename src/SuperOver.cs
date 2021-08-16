@@ -5,8 +5,8 @@ namespace T20Cricket
 {
     public class SuperOver
     {
-        private PredictScore predictScore;
-        private Commentary commentary;
+        private PredictScoreService predictScore;
+        private CommentaryService commentary;
         private List<string> bolwingCards;
         public enum typesOfBolwing { Bouncer=1, Inswinger, Outswinger, OffCutter, Yorker, OffBreak, LegCutter, SlowerBall, Pace, Doosra };
 
@@ -24,34 +24,35 @@ namespace T20Cricket
             return ballTypes;
         }
 
-        public void StartSuperOver(Team battingTeam, Team bowlingTeam, int totalBalls, int totalWickets, List<Strategy> outcomes)
+        public void StartSuperOver(MatchProperties matchProperties)
         {
             string[] input;
             int resultOfShot = 0;
-            string comment,bowlType, bowlerName = bowlingTeam.GetATeamMember();
-            string batsManName = battingTeam.GetATeamMember();
-            Logger log = new Logger();
-            SetSuperOver(battingTeam,bowlingTeam);
+            string comment, bowlType, bowlerName = matchProperties.bowlingTeam.GetATeamMember();
+            string batsManName = matchProperties.battingTeam.GetATeamMember();
+            LoggerService log = LoggerService.GetInstance;
+            InputFormateService inputFormateService = InputFormateService.GetInstance;
+            SetSuperOver(matchProperties.battingTeam, matchProperties.bowlingTeam);
             log.LogBowlingCards(bolwingCards);
 
             Console.WriteLine("START SUPER OVER !");
-            while (totalBalls > 0 && battingTeam.GetWickets() < totalWickets)
+            while (matchProperties.totalBalls > 0 && matchProperties.battingTeam.GetWickets() < matchProperties.totalWickets)
             {
-                input = Console.ReadLine().Trim().Split();
-                bowlType = bolwingCards[6 - totalBalls];
-                resultOfShot = predictScore.PredictOutcome(bowlType, input[0], input[1], outcomes);
+                input = inputFormateService.GetInput();
+                bowlType = bolwingCards[6 - matchProperties.totalBalls];
+                resultOfShot = predictScore.PredictOutcome(bowlType, input[0], input[1]);
                 log.LogSuperOverCommentary(bowlerName, bowlType, input[0], input[1], batsManName);
                 comment = commentary.GetCommentaryForShot(resultOfShot);
                 log.LogComment(comment);
                 if (resultOfShot < 0)
                 {
-                    batsManName = battingTeam.GetATeamMember();
-                    battingTeam.SetWicket();
+                    batsManName = matchProperties.battingTeam.GetATeamMember();
+                    matchProperties.battingTeam.SetWicket();
                 }
-                totalBalls -= 1;
-                battingTeam.SetScore(resultOfShot);
+                matchProperties.totalBalls -= 1;
+                matchProperties.battingTeam.SetScore(resultOfShot);
             }
-            log.ScoreCard(battingTeam);
+            log.ScoreCard(matchProperties.battingTeam);
         }
 
         public void SetSuperOver(Team team1, Team team2)
@@ -60,8 +61,8 @@ namespace T20Cricket
             team1.SetScore(0);
             team2.SetWicket(0);
             team2.SetScore(0);
-            predictScore = new PredictScore();
-            commentary = new Commentary();
+            predictScore = PredictScoreService.GetInstance;
+            commentary = CommentaryService.GetInstance;
             bolwingCards = GetBowlingCards();
         }
     }
