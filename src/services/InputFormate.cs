@@ -1,5 +1,6 @@
 using System;
-namespace T20Cricket
+
+namespace T20Cricket.Service
 {
     public class InputFormateService
     {

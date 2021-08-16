@@ -1,5 +1,7 @@
 using System;
-namespace T20Cricket
+using T20Cricket.Model;
+
+namespace T20Cricket.Service
 {
     public sealed class ResultService
     {

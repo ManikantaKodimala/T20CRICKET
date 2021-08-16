@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace T20Cricket
+namespace T20Cricket.Model
 {
     public class ShotTime
     {

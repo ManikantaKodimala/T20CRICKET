@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using T20Cricket;
+using T20Cricket.Service;
 using System;
 
 namespace T20CricketTest

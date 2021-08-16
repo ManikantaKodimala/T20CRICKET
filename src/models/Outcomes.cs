@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.IO;
 
-namespace T20Cricket
+namespace T20Cricket.Model
 {
     public static class Outcomes
     {

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using System;
 
-namespace T20Cricket
+namespace T20Cricket.Model
 {
     public class ShotType
     {

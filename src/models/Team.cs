@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
-namespace T20Cricket
+
+namespace T20Cricket.Model
 {
     public class Team
     {

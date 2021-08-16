@@ -1,6 +1,6 @@
 using System;
 
-namespace T20Cricket
+namespace T20Cricket.Service
 {
     public sealed class CommentaryService
     {

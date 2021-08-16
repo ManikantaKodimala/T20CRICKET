@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using T20Cricket.Model;
 
-namespace T20Cricket
+namespace T20Cricket.Service
 {
     public sealed class PredictScoreService
     {
